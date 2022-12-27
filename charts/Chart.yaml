@@ -1,0 +1,4 @@
+apiVersion: v1
+description: deploy springboot via skaffold and helm
+name: skaffold-helm-example
+version: 0.1.0

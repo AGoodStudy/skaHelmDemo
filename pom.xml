@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.7</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>skaHelmDemo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>skaHelmDemo</name>
+    <description>skaHelmDemo</description>
+    <properties>
+        <java.version>1.8</java.version>
+        <base.image>openjdk:8-jre-alpine</base.image>
+        <docker.tag>v1.1</docker.tag>
+        <docker.image>docker.io/2359721314/skahelm</docker.image>
+        <docker.username>xxx</docker.username>
+        <docker.password>xxx</docker.password>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <from>
+                        <image>${base.image}</image>
+                    </from>
+<!--                    <to>-->
+<!--                        <image>${docker.image}</image>-->
+<!--                        <tags>-->
+<!--                            <tag>${docker.tag}</tag>-->
+<!--                        </tags>-->
+<!--                        <auth>-->
+<!--                            <username>${docker.username}</username>-->
+<!--                            <password>${docker.password}</password>-->
+<!--                        </auth>-->
+<!--                    </to>-->
+                    <container>
+                        <mainClass>com.example.skahelmdemo.SkaHelmDemoApplication</mainClass>
+                        <jvmFlags>
+                            <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
+                            <jvmFlag>-Xms512m</jvmFlag>
+                            <jvmFlag>-Xmx2048m</jvmFlag>
+                        </jvmFlags>
+                        <ports>
+                            <port>80</port>
+                        </ports>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                    </container>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

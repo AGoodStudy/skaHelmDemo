@@ -1,0 +1,9 @@
+replicaCount: 1
+image: 2359721314/skahelm:latest
+service:
+  name: app-svc
+  type: NodePort
+  externalPort: 80
+  internalPort: 8081
+  nodePort: 30005
+pullPolicy: IfNotPresent
