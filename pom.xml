@@ -49,16 +49,16 @@
                     <from>
                         <image>${base.image}</image>
                     </from>
-<!--                    <to>-->
-<!--                        <image>${docker.image}</image>-->
-<!--                        <tags>-->
-<!--                            <tag>${docker.tag}</tag>-->
-<!--                        </tags>-->
-<!--                        <auth>-->
-<!--                            <username>${docker.username}</username>-->
-<!--                            <password>${docker.password}</password>-->
-<!--                        </auth>-->
-<!--                    </to>-->
+                    <to>
+                        <image>${docker.image}</image>
+                        <tags>
+                            <tag>${docker.tag}</tag>
+                        </tags>
+                        <auth>
+                            <username>${docker.username}</username>
+                            <password>${docker.password}</password>
+                        </auth>
+                    </to>
                     <container>
                         <mainClass>com.example.skahelmdemo.SkaHelmDemoApplication</mainClass>
                         <jvmFlags>
