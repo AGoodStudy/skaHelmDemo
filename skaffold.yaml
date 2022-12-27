@@ -3,6 +3,7 @@ kind: Config
 build:
   artifacts:
   - image: docker.io/2359721314/skahelm
+    context: .
     jib: {}
 deploy:
   helm:
