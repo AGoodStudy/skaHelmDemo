@@ -19,6 +19,8 @@
         <docker.tag>v1.1</docker.tag>
         <docker.image>docker.io/2359721314/skahelm</docker.image>
         <jib.maven-plugin-version>3.2.0</jib.maven-plugin-version>
+        <docker.username>xxx</docker.username>
+        <docker.password>xxx</docker.password>
     </properties>
     <dependencies>
         <dependency>
@@ -47,12 +49,16 @@
                     <from>
                         <image>${base.image}</image>
                     </from>
-                    <to>
-                        <image>${docker.image}</image>
-                        <tags>
-                            <tag>${docker.tag}</tag>
-                        </tags>
-                    </to>
+<!--                    <to>-->
+<!--                        <image>${docker.image}</image>-->
+<!--                        <tags>-->
+<!--                            <tag>${docker.tag}</tag>-->
+<!--                        </tags>-->
+<!--                        <auth>-->
+<!--                            <username>${docker.username}</username>-->
+<!--                            <password>${docker.password}</password>-->
+<!--                        </auth>-->
+<!--                    </to>-->
                     <container>
                         <mainClass>com.example.skahelmdemo.SkaHelmDemoApplication</mainClass>
                         <jvmFlags>
