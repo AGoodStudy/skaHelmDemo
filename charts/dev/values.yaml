@@ -1,0 +1,17 @@
+redis:
+  usePassword: false
+  cluster:
+    enabled: false
+  master:
+    persistence:
+      storageClass: efs
+app:
+  replicaCount: 1
+  image: 2359721314/skahelm:latest
+  service:
+    name: app-svc
+    type: NodePort
+    externalPort: 80
+    internalPort: 80
+    nodePort: 30005
+  pullPolicy: IfNotPresent

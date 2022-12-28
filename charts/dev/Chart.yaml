@@ -1,0 +1,11 @@
+apiVersion: v1
+description: deploy springboot and mysql via skaffold and helm
+name: dev
+version: 0.1.0
+dependencies:
+  - name: my-redis
+    version: "10.5.7"
+    repository: https://charts.helm.sh/stable
+  - name: app
+    version: "3.2.1"
+    repository: file://../app-release

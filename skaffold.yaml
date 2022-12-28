@@ -1,14 +1,20 @@
 apiVersion: skaffold/v4beta1
 kind: Config
+metadata:
+  name: skahelmdemo
 build:
   artifacts:
-  - image: docker.io/2359721314/skahelm
-    context: .
-    jib: {}
+    - image: 2359721314/skahelm
+      jib:
+        project: com.example:skaHelmDemo
+  tagPolicy:
+    envTemplate:
+      template: '{{.VERSION}}'
 deploy:
   helm:
     releases:
-    - name: skaffold-helm
-      chartPath: charts
-      setValues:
-        image: skaffold-helm
+    - name: dev
+      chartPath: charts/dev
+      valuesFiles:
+      - charts/dev/values.yaml
+      version: 0.1.0
