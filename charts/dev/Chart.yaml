@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: v2
 description: deploy springboot and mysql via skaffold and helm
 name: dev
 version: 1.1.0
