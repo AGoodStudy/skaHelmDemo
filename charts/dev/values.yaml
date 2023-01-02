@@ -14,4 +14,4 @@ app:
     externalPort: 80
     internalPort: 80
     nodePort: 30005
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
